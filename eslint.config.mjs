@@ -49,6 +49,7 @@ export default [
     rules: {
       "react/react-in-jsx-scope": "off",
       "no-console": "off",
+      "no-undef": 0
     }
   }
 ];
