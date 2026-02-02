@@ -84,7 +84,7 @@ export const Search = styled.input`
   justify-content: center;
   padding: 15px;
   border: 2px solid #2a75bb;
-  width: 200px;
+  width: 300px;
   border-radius: 12px;
   position: relative;
   font-family: 'Poppins', sans-serif;
