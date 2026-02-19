@@ -102,7 +102,7 @@ export const PokeType = styled.p`
     top: 0;
     right: -55px;
     background: ${(props) => backTypes[props.typeName] || '#777'};
-    border: 1px solid #252525;
+    border: 1px solid #777;
     z-index: -10;
     height: 30px;
   }

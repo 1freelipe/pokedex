@@ -59,6 +59,7 @@ export const List = styled.li`
   color: #2a75bb;
   font-size: 19px;
   position: relative;
+  text-transform: uppercase;
   cursor: pointer;
 
   &::after {
