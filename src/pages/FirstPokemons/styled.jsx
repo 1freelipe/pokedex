@@ -67,7 +67,7 @@ export const PokeName = styled.h3`
   font-weight: 600;
   font-style: normal;
   font-size: 19px;
-  background: #777;
+  background: ${(props) => backTypes[props.mainType] || '#777'};
   color: #fffff0;
   width: 150px;
   text-align: center;

@@ -71,9 +71,11 @@ export default function FirstPokemons() {
                       />
                     </home.PokeImg>
 
-                    <home.ContentWrapper>
-                      <home.PokeName>{capitalize(poke.name)}</home.PokeName>
+                    <home.PokeName mainType={firstType}>
+                      {capitalize(poke.name)}
+                    </home.PokeName>
 
+                    <home.ContentWrapper>
                       <home.ContentInfo>Peso: {poke.weight}kg</home.ContentInfo>
                       <home.ContentInfo>
                         Tamanho: {poke.height}

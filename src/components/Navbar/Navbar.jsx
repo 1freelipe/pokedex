@@ -10,8 +10,9 @@ export default function Navbar() {
 
       <nav.NavList>
         <nav.List>Ligas</nav.List>
-        <nav.List>Ligas</nav.List>
-        <nav.List>Ligas</nav.List>
+        <nav.List>Categorias</nav.List>
+        <nav.List>Tipos</nav.List>
+        <nav.List>Geração</nav.List>
 
         <nav.SearchWrapper>
           <nav.Search placeholder="Procure" />
