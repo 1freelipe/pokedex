@@ -40,7 +40,7 @@ export default function FirstPokemons() {
         <home.MainContent>
           {loading
             ? // BLOCO DE LOADING
-              Array.from({ length: 8 }).map((_, index) => (
+              Array.from({ length: 12 }).map((_, index) => (
                 <LoadingSkeleton key={index} />
               ))
             : // BLOCO DE CONTEÚDO (MAP)

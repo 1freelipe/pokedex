@@ -9,8 +9,8 @@ export const ContainerNav = styled.nav`
   width: 90%;
   background: #ececec;
   border-radius: 9px;
+  border: 1px solid #ffcb05;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(0, 0, 0, 0.1);
 `;
 
 export const Title = styled.h2`
@@ -46,7 +46,7 @@ export const NavList = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
 `;
 
 export const List = styled.li`

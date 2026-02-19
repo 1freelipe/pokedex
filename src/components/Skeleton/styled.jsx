@@ -10,16 +10,16 @@ const shimmer = keyframes`
 `;
 
 export const SkeletonBase = styled.div`
-  background: #f6f7f8;
+  background: #999;
   background-image: linear-gradient(
     to right,
-    #f6f7f8 0%,
-    #edeef1 20%,
-    #f6f7f8 40%,
-    #f6f7f8 100%
+    #888 0%,
+    #777 20%,
+    #888 60%,
+    #252525 100%
   );
   background-repeat: no-repeat;
-  background-size: 800px 104px;
+  background-size: 800px 400px;
   display: inline-block;
   position: relative;
 
@@ -33,4 +33,16 @@ export const SkeletonBase = styled.div`
   height: ${(props) => props.height || '100%'};
   border-radius: ${(props) => props.borderRadius || '4px'};
   margin-bottom: ${(props) => props.marginBottom || '0px'};
+`;
+
+export const SkeletonCard = styled.div`
+  width: 350px;
+  height: 450px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 `;

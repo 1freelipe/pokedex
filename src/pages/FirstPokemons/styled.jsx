@@ -25,6 +25,7 @@ export const Section = styled.section`
   min-height: 100vh;
   width: 100%;
   background-size: 120% 120%;
+  padding: 25px 5px;
 `;
 
 export const MainContent = styled.main`
@@ -159,7 +160,7 @@ export const Button = styled.button`
   border-radius: 50px;
   position: relative;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
   padding-left: 45px;
 
   &:hover {

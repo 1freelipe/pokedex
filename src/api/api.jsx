@@ -11,7 +11,9 @@ export default async function Pokemons() {
     }
     // Criando uma constante que vai mapear todos os endpoints do array já alimentado e utilizando o .get do axios
     const promises = endpoints.map((endpoint) => axios.get(endpoint));
+    // Resolvendo todas as promises de uma vez e não uma por uma
     const responses = await Promise.all(promises);
+    // Capturando o resultado de todas as promises resolvidas de uma vez e distribuindo no componente. Apenas o res.data da API inteira.
     const allPokeData = responses.map((res) => res.data);
 
     // Simulando um delay na promise para testar a tela de loading
