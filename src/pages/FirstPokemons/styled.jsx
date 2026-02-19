@@ -40,10 +40,11 @@ export const PokeImg = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid ${(props) => backTypes[props.mainType] || '#777'};
-  width: 95%;
-  height: 200px;
-  border-radius: 9px;
+  border: 2px solid #252525;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: ${(props) => backTypes[props.mainType] || '#999'};
 
   .imgPoke {
     width: 40%;
@@ -56,11 +57,13 @@ export const ContentWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 95%;
+  width: 100%;
   height: 200px;
-  border: 1px solid #252525;
+  border: 2px solid #999;
   border-radius: 9px;
   padding: 10px;
+  gap: 20px;
+  text-align: center;
 `;
 
 export const PokeName = styled.h3`
@@ -114,6 +117,10 @@ export const ContentInfo = styled.p`
   font-weight: 500;
   font-style: normal;
   font-size: 17px;
+  background: #999;
+  padding: 3px;
+  border-radius: 17px;
+  color: #252525;
 `;
 
 export const ButtonText = styled.span`
