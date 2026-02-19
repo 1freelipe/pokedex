@@ -1,11 +1,11 @@
 import Globalstyles from './styles/Globalstyles';
-import FirstPokemons from './pages/FirstPokemons/Firstpokemons';
+import PokemonsRoutes from './pages/FirstPokemons/PokemonsRoutes';
 
 function App() {
   return (
     <>
       <Globalstyles />
-      <FirstPokemons />
+      <PokemonsRoutes />
     </>
   );
 }

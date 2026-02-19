@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import { FaArrowRightFromBracket } from 'react-icons/fa6';
 
 import Pokemons from '../../api/api';
@@ -10,6 +11,11 @@ import LoadingSkeleton from '../../components/Skeleton/Skeleton';
 export default function FirstPokemons() {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate('/unique-poke');
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -86,7 +92,10 @@ export default function FirstPokemons() {
                     </home.ContentWrapper>
 
                     <home.ButtonWrapper>
-                      <home.Button mainType={firstType}>
+                      <home.Button
+                        mainType={firstType}
+                        onClick={handleNavigate}
+                      >
                         <home.IconWrapper>
                           <FaArrowRightFromBracket />
                         </home.IconWrapper>
