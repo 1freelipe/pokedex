@@ -17,7 +17,7 @@ export default async function Pokemons() {
     const allPokeData = responses.map((res) => res.data);
 
     // Simulando um delay na promise para testar a tela de loading
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    // await new Promise((resolve) => setTimeout(resolve, 5000));
 
     return allPokeData;
   } catch (error) {
