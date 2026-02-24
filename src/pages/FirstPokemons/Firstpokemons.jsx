@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { FaArrowRightFromBracket } from 'react-icons/fa6';
+import axios from '../../services/axios';
 
 import Pokemons from '../../api/api';
 import Navbar from '../../components/Navbar/Navbar';
@@ -10,8 +11,9 @@ import LoadingSkeleton from '../../components/Skeleton/Skeleton';
 
 export default function FirstPokemons() {
   const [pokemons, setPokemons] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState('');
   const limit = 12;
   const navigate = useNavigate();
 
@@ -23,21 +25,30 @@ export default function FirstPokemons() {
     async function fetchData() {
       setLoading(true);
       try {
-        const offset = (page - 1) * limit;
+        if (searchQuery) {
+          const response = await axios.get(
+            `pokemon/${searchQuery.toLowerCase()}`,
+          );
+          console.log(response.data);
+          setPokemons([response.data]);
+        } else {
+          const offset = (page - 1) * limit;
 
-        const data = await Pokemons(limit, offset);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        console.log(data);
-        setPokemons(data);
+          const data = await Pokemons(limit, offset);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          console.log(data);
+          setPokemons(data);
+        }
       } catch (error) {
         console.log(error);
+        setPokemons([]);
       } finally {
         setLoading(false);
       }
     }
 
     fetchData();
-  }, [page]);
+  }, [page, searchQuery]);
 
   const capitalize = (str) => {
     if (typeof str !== 'string') return '';
@@ -49,7 +60,7 @@ export default function FirstPokemons() {
 
   return (
     <>
-      <Navbar />
+      <Navbar onSearch={(text) => setSearchQuery(text)} />
       <home.Section>
         <home.MainContent>
           {loading
@@ -115,17 +126,19 @@ export default function FirstPokemons() {
               })}
         </home.MainContent>
 
-        <home.PaginationWrapper>
-          <button onClick={handlePrevPage} disabled={page === 1 || loading}>
-            Anterior
-          </button>
+        {!searchQuery && (
+          <home.PaginationWrapper>
+            <button onClick={handlePrevPage} disabled={page === 1 || loading}>
+              Anterior
+            </button>
 
-          <span>Pagina {page}</span>
+            <span>Pagina {page}</span>
 
-          <button onClick={handleNextPage} disabled={loading}>
-            Próxima
-          </button>
-        </home.PaginationWrapper>
+            <button onClick={handleNextPage} disabled={loading}>
+              Próxima
+            </button>
+          </home.PaginationWrapper>
+        )}
       </home.Section>
     </>
   );

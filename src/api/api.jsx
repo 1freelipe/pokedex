@@ -11,9 +11,7 @@ export default async function Pokemons(limit = 12, offset = 0) {
     // }
 
     // Consumindo toda a API passando dois parâmetros para construir as páginas
-    const response = await axios.get(
-      `/pokemon?limit=${limit}&offset=${offset}`,
-    );
+    const response = await axios.get(`pokemon?limit=${limit}&offset=${offset}`);
 
     // Extraindo apenas a URL de cada pokemon, tirando a necessidade de fazer um for
     const endpoints = response.data.results.map((poke) => poke.url);

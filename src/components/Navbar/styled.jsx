@@ -110,6 +110,13 @@ export const SearchWrapper = styled.div`
   padding: 10px;
   position: relative;
 
+  button {
+    position: absolute;
+    right: 10px;
+    top: 25px;
+    border: none;
+  }
+
   .searchIcon {
     cursor: pointer;
     position: absolute;
