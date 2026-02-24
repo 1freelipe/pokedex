@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import backImage from '../../images/background.png';
+import backImage from '../../images/backcard.png';
 
 export const Detailcard = styled.div`
   width: 1700px;

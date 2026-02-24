@@ -1,14 +1,22 @@
 import axios from '../services/axios';
 
-export default async function Pokemons() {
+export default async function Pokemons(limit = 12, offset = 0) {
   try {
     // Criando um array vazio
-    const endpoints = [];
-    let i = 0;
+    // const endpoints = [];
+    // let i = 0;
     // Alimentando o array com os diferentes endpoints, dependendo do número máximo no breakpoint
-    for (i = 1; i < 50; i++) {
-      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
-    }
+    // for (i = 1; i < 50; i++) {
+    //   endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+    // }
+
+    // Consumindo toda a API passando dois parâmetros para construir as páginas
+    const response = await axios.get(
+      `/pokemon?limit=${limit}&offset=${offset}`,
+    );
+
+    // Extraindo apenas a URL de cada pokemon, tirando a necessidade de fazer um for
+    const endpoints = response.data.results.map((poke) => poke.url);
     // Criando uma constante que vai mapear todos os endpoints do array já alimentado e utilizando o .get do axios
     const promises = endpoints.map((endpoint) => axios.get(endpoint));
     // Resolvendo todas as promises de uma vez e não uma por uma

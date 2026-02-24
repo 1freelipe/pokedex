@@ -11,6 +11,8 @@ import LoadingSkeleton from '../../components/Skeleton/Skeleton';
 export default function FirstPokemons() {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const limit = 12;
   const navigate = useNavigate();
 
   const handleNavigate = (id) => {
@@ -21,7 +23,10 @@ export default function FirstPokemons() {
     async function fetchData() {
       setLoading(true);
       try {
-        const data = await Pokemons();
+        const offset = (page - 1) * limit;
+
+        const data = await Pokemons(limit, offset);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         console.log(data);
         setPokemons(data);
       } catch (error) {
@@ -32,12 +37,15 @@ export default function FirstPokemons() {
     }
 
     fetchData();
-  }, []);
+  }, [page]);
 
   const capitalize = (str) => {
     if (typeof str !== 'string') return '';
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
+
+  const handleNextPage = () => setPage((prev) => prev + 1);
+  const handlePrevPage = () => setPage((prev) => (prev > 1 ? prev - 1 : 1));
 
   return (
     <>
@@ -81,7 +89,7 @@ export default function FirstPokemons() {
                       {capitalize(poke.name)}
                     </home.PokeName>
 
-                    <home.ContentWrapper>
+                    <home.ContentWrapper mainType={firstType}>
                       <home.ContentInfo>Peso: {poke.weight}kg</home.ContentInfo>
                       <home.ContentInfo>
                         Tamanho: {poke.height}
@@ -106,6 +114,18 @@ export default function FirstPokemons() {
                 );
               })}
         </home.MainContent>
+
+        <home.PaginationWrapper>
+          <button onClick={handlePrevPage} disabled={page === 1 || loading}>
+            Anterior
+          </button>
+
+          <span>Pagina {page}</span>
+
+          <button onClick={handleNextPage} disabled={loading}>
+            Próxima
+          </button>
+        </home.PaginationWrapper>
       </home.Section>
     </>
   );

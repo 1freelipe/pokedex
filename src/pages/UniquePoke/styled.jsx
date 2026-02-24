@@ -33,9 +33,15 @@ export const MainContent = styled.main`
 
 export const ArrowReturn = styled.div`
   position: absolute;
-  background: #ffcb05;
-  width: 30px;
-  height: 30px;
+  background: linear-gradient(
+    to bottom,
+    #e53935 0%,
+    #e53935 48%,
+    #fff 52%,
+    #fff 100%
+  );
+  width: 40px;
+  height: 40px;
   left: 0;
   top: -30px;
   display: flex;
@@ -43,10 +49,11 @@ export const ArrowReturn = styled.div`
   justify-content: center;
   border-radius: 50%;
   cursor: pointer;
-  border: 1px solid #3f82c1;
+  border: 3px solid #000;
 
   .arrow {
-    color: #3f82c1;
+    color: #252525;
+    font-size: 22px;
   }
 `;
 

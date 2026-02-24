@@ -59,7 +59,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   height: 200px;
-  border: 2px solid #999;
+  border: 2px solid ${(props) => backTypes[props.mainType] || '#777'};
   border-radius: 9px;
   padding: 10px;
   gap: 20px;
@@ -117,7 +117,7 @@ export const ContentInfo = styled.p`
   font-weight: 500;
   font-style: normal;
   font-size: 17px;
-  background: #999;
+  background: linear-gradient(180deg, #f6ffe8 0%, #e6f4d8 50%, #dff0c5 100%);
   padding: 3px;
   border-radius: 17px;
   color: #252525;
@@ -183,5 +183,43 @@ export const Button = styled.button`
   &:hover ${ButtonText} {
     opacity: 1;
     transform: translateX(0);
+  }
+`;
+
+export const PaginationWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 0; /* Espaço para não grudar nos cards */
+  width: 100%;
+
+  button {
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    background-color: #489633;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #367326;
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #333;
   }
 `;
