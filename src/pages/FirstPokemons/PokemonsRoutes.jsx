@@ -9,7 +9,7 @@ export default function PokemonsRoutes() {
       {/*Criando rotas com o React-Router-Dom para separar as duas únicas páginas*/}
       <Route path="/" element={<Navigate to="/pokedex" replace />} />
       <Route path="/pokedex" element={<FirstPokemons />} />
-      <Route path="/unique-poke" element={<UniquePoke />} />
+      <Route path="/unique-poke/:id" element={<UniquePoke />} />
     </Routes>
   );
 }

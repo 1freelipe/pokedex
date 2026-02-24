@@ -13,8 +13,8 @@ export default function FirstPokemons() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    navigate('/unique-poke');
+  const handleNavigate = (id) => {
+    navigate(`/unique-poke/${id}`);
   };
 
   useEffect(() => {
@@ -94,7 +94,7 @@ export default function FirstPokemons() {
                     <home.ButtonWrapper>
                       <home.Button
                         mainType={firstType}
-                        onClick={handleNavigate}
+                        onClick={() => handleNavigate(poke.id)}
                       >
                         <home.IconWrapper>
                           <FaArrowRightFromBracket />

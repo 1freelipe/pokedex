@@ -40,7 +40,7 @@ export const PokeImg = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #252525;
+  border: 2px solid rgba(0, 0, 0, 0.3);
   width: 250px;
   height: 250px;
   border-radius: 50%;
