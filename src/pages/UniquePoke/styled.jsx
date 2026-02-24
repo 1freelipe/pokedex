@@ -93,3 +93,13 @@ export const DivWrapper = styled.div`
   flex-direction: column;
   gap: 15px;
 `;
+
+export const CardDescripton = styled.div`
+  background: #252525;
+  width: 500px;
+  height: 350px;
+`;
+
+export const Description = styled.p`
+  color: #fffff0;
+`;

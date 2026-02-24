@@ -25,15 +25,17 @@ export default function FirstPokemons() {
     async function fetchData() {
       setLoading(true);
       try {
+        // Se tem algo na busca, ele vai fazer a requisição no valor do input
         if (searchQuery) {
           const response = await axios.get(
             `pokemon/${searchQuery.toLowerCase()}`,
           );
           console.log(response.data);
           setPokemons([response.data]);
+
+          // Se não, ele vai fazer a requisição normal trazendo todos os pokémons
         } else {
           const offset = (page - 1) * limit;
-
           const data = await Pokemons(limit, offset);
           window.scrollTo({ top: 0, behavior: 'smooth' });
           console.log(data);
@@ -50,11 +52,13 @@ export default function FirstPokemons() {
     fetchData();
   }, [page, searchQuery]);
 
+  // Função para transformar a primeira letra do nome em maiúscula
   const capitalize = (str) => {
     if (typeof str !== 'string') return '';
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
+  // Utilizando o prev para fazer o calculo de páginas
   const handleNextPage = () => setPage((prev) => prev + 1);
   const handlePrevPage = () => setPage((prev) => (prev > 1 ? prev - 1 : 1));
 
@@ -125,7 +129,7 @@ export default function FirstPokemons() {
                 );
               })}
         </home.MainContent>
-
+        {/*Se houver parâmetro de busca, ele vai sumir com a paginação */}
         {!searchQuery && (
           <home.PaginationWrapper>
             <button onClick={handlePrevPage} disabled={page === 1 || loading}>
