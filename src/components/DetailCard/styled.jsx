@@ -12,4 +12,9 @@ export const Detailcard = styled.div`
   border-radius: 12px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-direction: column;
 `;
